@@ -1,0 +1,9 @@
+{
+  "name": "myProject",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": ">= 1.7",
+    "mocha": ">= 1.6",
+    "chai": ">= 1.0" 
+  }
+}
