@@ -20,14 +20,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="0.28708133">
+            <state line="12" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="-7.5">
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="31" selection-start="699" selection-end="699" vertical-scroll-proportion="0.5529954">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,6 +93,7 @@
         <option value="$PROJECT_DIR$/component.json" />
         <option value="$PROJECT_DIR$/js/simi.js" />
         <option value="$PROJECT_DIR$/spec/index.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -398,11 +408,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="0.28708133">
+        <state line="12" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="-7.5">
           <folding>
             <element signature="n#style#0;n#textarea#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="31" selection-start="699" selection-end="699" vertical-scroll-proportion="0.5529954">
+          <folding />
         </state>
       </provider>
     </entry>
