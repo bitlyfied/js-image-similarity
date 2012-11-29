@@ -1,6 +1,28 @@
 (function(global){
 
-    var SIMILARITY_THRESHOLD = 0.5;
+    var SIMILARITY_THRESHOLD = 0.15;
+
+    function hash(image){
+        var pixelsMap = utils.pixelsMap(image,8,8),
+            bytesMap = utils.desaturate(pixelsMap),
+            average = utils.average(bytesMap),
+            thresholdMap = utils.thresholdMap(bytesMap, average);
+
+        return thresholdMap;
+    }
+
+    function compare(first, second){
+        first = (first instanceof HTMLImageElement) ? hash(first) : first;
+        second = (second instanceof HTMLImageElement) ? hash(second) : second;
+
+        var distance = utils.hammingDistance(first, second);
+
+        return (distance / 64).toFixed(3);
+    }
+
+    function same(first, second){
+        return compare(first, second) <= SIMILARITY_THRESHOLD;
+    }
 
     var utils = {
         /**
@@ -9,9 +31,11 @@
          */
         desaturate: function(data){
             var grays = new Array(data.length / 4);
-            for(var i = 0; i < data.length; i+=4){
-                grays[i] = (data[i] + data[i+1] + data[i+2]) / 3;
+            for(var i = 0; i < grays.length; i++){
+                var j = i * 4;
+                grays[i] = Math.round((data[j] + data[j+1] + data[j+2]) / 3);
             }
+            return grays;
         },
 
         /**
@@ -34,13 +58,11 @@
          *
          * @param data
          * @param threshold
-         * @return Array [int lowBits, int hightBits]
+         * @return Number bitmap
          */
-        thresholdMask: function(data, threshold){
-            return [0,1].map(function(element, index){
-                return utils.mapToBits(data.splice(0,32), function(byte){
-                    return byte >= threshold;
-                });
+        thresholdMap: function(data, threshold){
+            return utils.mapToBits(data, function(byte){
+                return byte >= threshold;
             });
         },
 
@@ -59,34 +81,39 @@
                 result |= callback(element) << bit++;
             });
             return result;
+        },
+
+        /**
+         * Scale down the image to the specified width ad height and returns
+         * an array of the resulting pixels
+         *
+         * @param image
+         * @param width
+         * @param height
+         * @return CanvasPixelArray
+         */
+        pixelsMap: function(image,width,height){
+            var canvas = document.createElement("canvas");
+            canvas.width = width; canvas.height = height;
+
+            var context = canvas.getContext('2d');
+            context.drawImage(image, 0, 0, width, height);
+
+            return context.getImageData(0, 0, width, height).data;
+        },
+
+        /**
+         * Returning the Hamming distance between two series of bits
+         *
+         * @param bitsA
+         * @param bitsB
+         * @return Number distance
+         */
+        hammingDistance: function(bitsA, bitsB){
+            var diffMask = (bitsA ^ bitsB).toString(2);
+            return (diffMask.match(/1/g)||[]).length
         }
     };
-
-    function hash(image){
-        var canvas = document.createElement("canvas");
-        canvas.width = 8; canvas.height = 8;
-
-        var context = canvas.getContext('2d');
-        context.drawImage(image, 0, 0, 8, 8);
-
-
-        var imageData = context.getImageData(0, 0, 8, 8);
-        var matrix = utils.desaturate(imageData.data);
-        var average = utils.average(matrix);
-        var bits = utils.bits(matrix, average);
-
-        return canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, "");
-    }
-
-    function compare(first, second){
-        first = (first instanceof ImageHash) ? first : hash(first);
-        second = (second instanceof ImageHash) ? second : hash(second);
-        return first == second;
-    }
-
-    function same(first, second){
-        return compare(first, second) >= SIMILARITY_THRESHOLD;
-    }
 
     global.simi = {
         hash: hash,

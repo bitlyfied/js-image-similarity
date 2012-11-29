@@ -12,8 +12,8 @@ describe("simi", function () {
             });
         });
 
-        describe("thresholdMask", function () {
-            it("returns the correct lower bits of the mask", function () {
+        describe("thresholdMap", function () {
+            it("returns the correct bits", function () {
                 var input = new Array(64);
                 input[0] = 10;
                 input[1] = 20;
@@ -23,26 +23,23 @@ describe("simi", function () {
 
                 var expectedOutput = '110';
 
-                var bitMask = simi.utils.thresholdMask(input, threshold);
+                var bitMask = simi.utils.thresholdMap(input, threshold);
 
-                assert.equal(expectedOutput, bitMask[0].toString(2));
-            });
-
-            it("returns the correct higher bits of the mask", function () {
-                var input = new Array(64);
-                input[32+0] = 10;
-                input[32+1] = 20;
-                input[32+2] = 30;
-
-                var threshold = 20;
-
-                var expectedOutput = '110';
-
-                var bitMask = simi.utils.thresholdMask(input, threshold);
-
-                assert.equal(expectedOutput, bitMask[1].toString(2));
+                assert.equal(expectedOutput, bitMask.toString(2));
             });
         });
+
+        describe("hammingDistance", function () {
+            it("returns the correct distance", function () {
+                var from   = parseInt('11111', 2),
+                    to     = parseInt('10110', 2);
+
+                var distance = simi.utils.hammingDistance(from, to);
+
+                assert.equal(2, distance);
+            });
+        });
+
 
     });
 

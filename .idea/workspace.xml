@@ -20,10 +20,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="simi.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="0.28708133">
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simi.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/simi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="42" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.115207374">
+            <state line="2" column="28" selection-start="28" selection-end="48" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unit.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/unit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="4" selection-start="470" selection-end="510" vertical-scroll-proportion="-9.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="component.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/component.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="19" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -32,25 +62,7 @@
       <file leaf-file-name="simi.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/simi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="30" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="4" selection-start="770" selection-end="770" vertical-scroll-proportion="-16.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simi-visual.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/simi-visual.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="8" selection-start="471" selection-end="516" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="30" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -68,9 +80,10 @@
       <list>
         <option value="$PROJECT_DIR$/spec/visual.html" />
         <option value="$PROJECT_DIR$/spec/simi-visual.js" />
-        <option value="$PROJECT_DIR$/spec/index.html" />
         <option value="$PROJECT_DIR$/spec/simi.js" />
+        <option value="$PROJECT_DIR$/component.json" />
         <option value="$PROJECT_DIR$/js/simi.js" />
+        <option value="$PROJECT_DIR$/spec/index.html" />
       </list>
     </option>
   </component>
@@ -148,7 +161,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js-image-similarity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js-image-similarity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js-image-similarity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js-image-similarity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,6 +234,13 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <list size="0" />
@@ -309,31 +361,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="4" selection-start="770" selection-end="770" vertical-scroll-proportion="-16.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/simi-visual.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="471" selection-end="516" vertical-scroll-proportion="0.0">
+        <state line="11" column="8" selection-start="471" selection-end="516" vertical-scroll-proportion="0.25345623">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/simi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="30" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="30" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/unit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="470" selection-end="510" vertical-scroll-proportion="-9.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/component.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/simi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="42" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.115207374">
+        <state line="2" column="28" selection-start="28" selection-end="48" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="32" selection-start="522" selection-end="522" vertical-scroll-proportion="0.28708133">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

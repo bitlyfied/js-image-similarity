@@ -4,27 +4,74 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="/components/mocha/mocha.css" />
     <script src="/components/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/components/underscore/underscore-min.js"></script>
     <script src="/components/mocha/mocha.js"></script>
     <script src="/components/chai/chai.js"></script>
-    
+    <script src="/js/simi.js"></script>
+
+    <style>
+        .wrong{background-color:red}
+    </style>
+
     <script>
         var assert = chai.assert;
-        mocha.setup('bdd')
-    </script>
-    
-    <script src="/js/simi.js"></script>
-    <script src="/spec/simi.js"></script>
-    <script>
+        mocha.setup('bdd');
+
+        _.templateSettings = {
+            interpolate : /\{\{(.+?)\}\}/g
+        };
+
+        var matchTests = 'wrong desaturation blur crop rotation compression scale mix'.split(' ');
+
         $(function(){
+            var itemTemplate = _.template($('#item-template').val());
+            var table = '<table>';
+
+            matchTests.forEach(function(test){
+                table += itemTemplate({
+                    id: test,
+                    source: '/spec/images/matches/source.jpg',
+                    comparison: '/spec/images/matches/'+test+'.jpg'
+                });
+            });
+
+            table += '</table>';
+            $('body').append(table);
+        });
+
+        describe("simi", function () {
+            describe("match", function(){
+                matchTests.forEach(function(test){
+                    it(test, function(){
+                        var tr = $('#'+test);
+                        var result = simi.compare(tr.find('.source')[0], tr.find('.comparison')[0]);
+                        tr.find('.match').html(result);
+
+                        if(result >= 0.15){
+                            tr.addClass('wrong');
+                        }
+                    });
+                });
+            });
+        });
+
+        window.onload = function(){
             if (window.mochaPhantomJS) {
                 mochaPhantomJS.run();
             }else{
                 mocha.run();
             };
-        });
+        };
     </script>
 </head>
 <body>
-    <div id="mocha"></div>
+    <textarea id="item-template" style="display:none">
+        <tr id="{{id}}">
+            <td><img class='source' src="{{source}}"/></td>
+            <td><img class='comparison' src="{{comparison}}"/></td>
+            <td class="match"></td>
+        </tr>
+    </textarea>
+    <div id="mocha" style="display:none"></div>
 </body>
 </html>
