@@ -21,6 +21,6 @@ Usage
     simi.same(img1, img2);
 
     // returns a perceptual hash of the image
-    // simi.hash could be invoked to cash the hash
+    // simi.hash could be invoked to cache the hash
     var hash = simi.hash(img1);
     simi.compare(hash, img2); // only img2 will be hashed
