@@ -6,7 +6,8 @@ The algorithm used is the one described here:
 
 http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
 
-The library is only supposed to work in WebKit.
+The library is only supposed to work in latest WebKit.
+Supports for Canvas and Array.forEach is required.
 
 Usage
 -----
@@ -24,3 +25,25 @@ Usage
     // simi.hash could be invoked to cache the hash
     var hash = simi.hash(img1);
     simi.compare(hash, img2); // only img2 will be hashed
+
+
+Dependencies
+-----
+
+The library doesn't have any external dependencies, but you need bower, jquery, underscore, mocha and chai to run tests
+
+
+How to run tests
+----
+
+    # install tests dependencies using bower
+    cd spec
+    bower install
+
+    # run tests headless using PhantomJS
+    mocha-phantomjs index.html
+
+    # run tests inside the browser
+    cd ..
+    python -m SimpleHTTPServer
+    open http://localhost:8000/spec/index.html

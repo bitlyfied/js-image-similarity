@@ -1,16 +1,22 @@
 <html>
 <head>
-    <title>Mocha</title>
+    <title>Mocha Tests for Simi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="/components/mocha/mocha.css" />
-    <script src="/components/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="/components/underscore/underscore-min.js"></script>
-    <script src="/components/mocha/mocha.js"></script>
-    <script src="/components/chai/chai.js"></script>
-    <script src="/js/simi.js"></script>
+
+    <link rel="stylesheet" href="components/mocha/mocha.css" />
+    <script src="components/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="components/underscore/underscore-min.js"></script>
+    <script src="components/mocha/mocha.js"></script>
+    <script src="components/chai/chai.js"></script>
+
+    <script src="../js/simi.js"></script>
 
     <style>
         .wrong{background-color:red}
+        #results{
+            border:1px solid black;
+        }
+
     </style>
 
     <script>
@@ -21,34 +27,52 @@
             interpolate : /\{\{(.+?)\}\}/g
         };
 
-        var matchTests = 'wrong desaturation blur crop rotation compression scale mix'.split(' ');
+        var matchTests = {
+            'wrong'       : false,
+            'desaturation': true,
+            'blur'        : true,
+            'crop'        : true,
+            'rotation'    : true,
+            'compression' : true,
+            'scale'       : true,
+            'mix'         : true
+        };
 
         $(function(){
             var itemTemplate = _.template($('#item-template').val());
-            var table = '<table>';
+            var table = '<table id="results">';
 
-            matchTests.forEach(function(test){
+            _(matchTests).each(function(shouldMatch, testName){
                 table += itemTemplate({
-                    id: test,
-                    source: '/spec/images/matches/source.jpg',
-                    comparison: '/spec/images/matches/'+test+'.jpg'
+                    id: testName,
+                    source: 'images/matches/source.jpg',
+                    comparison: 'images/matches/'+testName+'.jpg'
                 });
             });
 
             table += '</table>';
-            $('body').append(table);
+            $('body').prepend(table);
         });
 
         describe("simi", function () {
             describe("match", function(){
-                matchTests.forEach(function(test){
-                    it(test, function(){
-                        var tr = $('#'+test);
+                _(matchTests).each(function(shouldMatch, testName){
+                    it((shouldMatch ? 'should' : 'should NOT') + ' match image "' + testName + '"', function(){
+                        var tr = $('#'+testName);
                         var result = simi.compare(tr.find('.source')[0], tr.find('.comparison')[0]);
-                        tr.find('.match').html(result);
+                        var matches = result <= 0.15;
 
-                        if(result >= 0.15){
+                        tr.find('.match').html(Math.round((result * 100)));
+                        tr.find('.name').html(testName);
+                        if(!matches){
                             tr.addClass('wrong');
+                        }
+
+                        // logical XOR
+                        if( matches ? shouldMatch : !shouldMatch ){
+                            assert.ok(true);
+                        }else{
+                            assert.fail('Unexpected result');
                         }
                     });
                 });
@@ -57,12 +81,14 @@
 
         window.onload = function(){
             if (window.mochaPhantomJS) {
-                mochaPhantomJS.run();
+                mochaPhantomJS.run()
             }else{
                 mocha.run();
             };
         };
+
     </script>
+    <script src="simi.js"></script>
 </head>
 <body>
     <textarea id="item-template" style="display:none">
@@ -70,8 +96,9 @@
             <td><img class='source' src="{{source}}"/></td>
             <td><img class='comparison' src="{{comparison}}"/></td>
             <td class="match"></td>
+            <td class="name"></td>
         </tr>
     </textarea>
-    <div id="mocha" style="display:none"></div>
+    <div id="mocha"></div>
 </body>
 </html>
