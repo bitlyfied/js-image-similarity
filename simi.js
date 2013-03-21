@@ -61,8 +61,8 @@
          * @return Number bitmap
          */
         thresholdMap: function(data, threshold){
-            return utils.mapToBits(data, function(byte){
-                return byte >= threshold;
+            return utils.mapToBits(data, function(byteData){
+                return byteData >= threshold;
             });
         },
 
@@ -111,7 +111,7 @@
          */
         hammingDistance: function(bitsA, bitsB){
             var diffMask = (bitsA ^ bitsB).toString(2);
-            return (diffMask.match(/1/g)||[]).length
+            return (diffMask.match(/1/g)||[]).length;
         }
     };
 
@@ -120,5 +120,5 @@
         compare: compare,
         same: same,
         utils: utils
-    }
+    };
 })(window);
