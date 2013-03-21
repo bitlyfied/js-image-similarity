@@ -1,6 +1,8 @@
 JavaScript Image Similarity Comparison
 =======================
 
+[![Build Status](https://travis-ci.org/bitlyfied/js-image-similarity.png)](https://travis-ci.org/bitlyfied/js-image-similarity)
+
 This is a first draft of a basic image comparison algorithm using average hashes.
 The algorithm used is the one described here:
 
