@@ -36,14 +36,18 @@ The library doesn't have any external dependencies, but you need bower, jquery, 
 How to run tests
 ----
 
-    # install tests dependencies using bower
-    cd spec
-    bower install
+Tests are now run automatically using Travis CI.
+If you need to run tests manually you just need to use Grunt and run the default task.
 
-    # run tests headless using PhantomJS
-    mocha-phantomjs index.html
+If you want to run tests manually from a browser you can follow this process:
 
     # run tests inside the browser
     cd ..
     python -m SimpleHTTPServer
     open http://localhost:8000/spec/index.html
+
+Always remember to download spec depdencies using bower before doing anything:
+
+    # install tests dependencies using bower
+    cd spec
+    bower install
