@@ -4,4 +4,4 @@ node_js:
 before_script:
   - npm install grunt-cli -g
   - grunt build
-script: grunt --verbose
+script: grunt default --verbose
