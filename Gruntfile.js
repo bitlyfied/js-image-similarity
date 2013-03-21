@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // Task configuration.
         mocha: {
-            all: [ 'spec/**/*.html' ]
+            all: [ 'spec/index.html' ]
         },
         jshint: {
             options: {
